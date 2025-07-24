@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "applications",
+  "info": {
+    "singularName": "application",
+    "pluralName": "applications",
+    "displayName": "Application",
+    "description": "Job applications from candidates"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 255
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "maxLength": 50
+    },
+    "message": {
+      "type": "text"
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": ["pending", "reviewed", "contacted", "rejected", "hired"],
+      "default": "pending"
+    },
+    "jobOffer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::job-offer.job-offer",
+      "inversedBy": "applications"
+    }
+  }
+}

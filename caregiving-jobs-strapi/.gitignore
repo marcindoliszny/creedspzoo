@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# Database
+*.db
+*.sqlite
+
+# Build
+dist/
+build/
+.strapi-updater.json
+
+# OS
+.DS_Store
+Thumbs.db
