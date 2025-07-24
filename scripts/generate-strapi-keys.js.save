@@ -1,0 +1,24 @@
+// Run this script to generate secure keys for Strapi
+const crypto = require("crypto")
+
+console.log("=== Strapi Environment Variables ===\n")
+console.log("Copy these to your Render Environment Variables:\n")
+
+console.log("NODE_ENV=production")
+console.log("DATABASE_CLIENT=postgres")
+console.log("DATABASE_URL=[Copy from your PostgreSQL database]")
+console.log(`APP_KEYS=${crypto.randomBytes(32).toString("base64")}`)
+console.log(`API_TOKEN_SALT=${crypto.randomBytes(32).toString("base64")}`)
+console.log(`ADMIN_JWT_SECRET=${crypto.randomBytes(32).toString("base64")}`)
+console.log(`TRANSFER_TOKEN_SALT=${crypto.randomBytes(32).toString("base64")}`)
+console.log(`JWT_SECRET=${crypto.randomBytes(32).toString("base64")}`)
+
+console.log("\n=== Instructions ===")
+console.log("1. Copy each line above")
+console.log("2. Go to Render → Your Service → Environment")
+console.log("3. Add each as a separate environment variable")
+console.log("4. For DATABASE_URL, copy the connection string from your PostgreSQL database")
+console.log("5. Save and redeploy")
+
+
+
