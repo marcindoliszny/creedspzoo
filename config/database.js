@@ -1,3 +1,5 @@
+# In your creed-tests folder, update the database config:
+cat > config/database.js << 'EOF'
 const path = require("path");
 
 module.exports = ({ env }) => {
@@ -7,8 +9,8 @@ module.exports = ({ env }) => {
     postgres: {
       connection: {
         connectionString: env("DATABASE_URL"),
-        ssl: env.bool("DATABASE_SSL", false) && {
-          rejectUnauthorized: env.bool("DATABASE_SSL_REJECT_UNAUTHORIZED", true),
+        ssl: env.bool("DATABASE_SSL", true) && {
+          rejectUnauthorized: env.bool("DATABASE_SSL_REJECT_UNAUTHORIZED", false),
         },
       },
       pool: { 
@@ -32,3 +34,4 @@ module.exports = ({ env }) => {
     },
   };
 };
+EOF
